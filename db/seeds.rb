@@ -34,7 +34,7 @@ Actor.create!([
   { name: "Sarah Snook", age: 33, gender: "Female", hometown: "Adelaide, Australia" },
 ])
 
-Show_genres.create!([
+ShowGenre.create!([
   { show_id: 1, genre_id: 6 },
   { show_id: 1, genre_id: 3 },
   { show_id: 3, genre_id: 1 },
