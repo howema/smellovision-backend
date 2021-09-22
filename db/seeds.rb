@@ -14,3 +14,35 @@ Show.create!([
   { title: "Big Bang Theory", year: 2007, description: "Nerds scared of women. Lack social awareness. Bang Bang.", creator: "Chuck Lorre", seasons: 12, network: "CBS", favorite: false, image: "https://www.tvguide.com/a/img/catalog/provider/1/1/1-6482810627.jpg" },
   { title: "Friends", year: 1994, description: "NYC homies joke at coffee shop but it's whatever.", creator: "David Crane", seasons: 10, network: "NBC", favorite: false, image: "https://m.media-amazon.com/images/M/MV5BNDVkYjU0MzctMWRmZi00NTkxLTgwZWEtOWVhYjZlYjllYmU4XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_.jpg" },
 ])
+
+Genre.create!([
+  { genre: "Comedy" },
+  { genre: "Action" },
+  { genre: "Drama" },
+  { genre: "Thriller" },
+  { genre: "Horror" },
+  { genre: "Crime" },
+  { genre: "Sports" },
+  { genre: "Animated" },
+  { genre: "Sitcom" },
+  { genre: "SciFi" },
+])
+
+Actor.create!([
+  { name: "Bryan Cranston", age: 65, gender: "Male", hometown: "Hollywood, CA" },
+  { name: "Jason Sudeikis", age: 46, gender: "Male", hometown: "Fairfax, VA" },
+  { name: "Sarah Snook", age: 33, gender: "Female", hometown: "Adelaide, Australia" },
+])
+
+Show_genres.create!([
+  { show_id: 1, genre_id: 6 },
+  { show_id: 1, genre_id: 3 },
+  { show_id: 3, genre_id: 1 },
+  { show_id: 3, genre_id: 7 },
+  { show_id: 2, genre_id: 1 },
+  { show_id: 2, genre_id: 9 },
+  { show_id: 4, genre_id: 4 },
+  { show_id: 6, genre_id: 6 },
+  { show_id: 6, genre_id: 9 },
+  { show_id: 5, genre_id: 9 },
+])
