@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
   def index
     shows = Show.all
-    render json: shows.as_json
+    render json: shows
   end
 
   def create
@@ -16,13 +16,16 @@ class ShowsController < ApplicationController
       user_id: params[:user_id],
       image: params[:image],
     )
-    show.save
-    render json: show.as_json
+    if show.save
+      render json: { message: "Show created successfully" }, status: :created
+    else
+      render json: { errors: show.errors.full_messages }, status: :bad_request
+    end
   end
 
   def show
     show = Show.find_by(id: params[:id])
-    render json: show.as_json
+    render json: show
   end
 
   def update
@@ -36,8 +39,11 @@ class ShowsController < ApplicationController
     show.favorite = params[:favorite] || show.favorite
     show.user_id = params[:user_id] || show.user_id
     show.image = params[:image] || show.image
-    show.save
-    render json: show.as_json
+    if show.save
+      render json: { message: "Show updated successfully" }, status: :created
+    else
+      render json: { errors: show.errors.full_messages }, status: :bad_request
+    end
   end
 
   def destroy
