@@ -8,29 +8,33 @@ class UsersController < ApplicationController
     user = User.new(
       name: params[:name],
       email: params[:email],
+      password: params[:password],
       password_confirmation: params[:password_confirmation],
     )
-    user.save
-    render json: user.as_json
+    if user.save
+      render json: { message: "User created successfully" }, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: :bad_request
+    end
   end
 
-  def show
-    user = User.find_by(id: params[:id])
-    render json: user.as_json
-  end
+  # def show
+  #   user = User.find_by(id: params[:id])
+  #   render json: user.as_json
+  # end
 
-  def update
-    user = User.find_by(id: params[:id])
-    user.name = params[:first_name] || user.name
-    user.email = params[:email] || user.email
-    user.password_confirmation = params[:password_confirmation] || user.password_confirmation
-    user.save
-    render json: user.as_json
-  end
+  # def update
+  #   user = User.find_by(id: params[:id])
+  #   user.name = params[:first_name] || user.name
+  #   user.email = params[:email] || user.email
+  #   user.password_confirmation = params[:password_confirmation] || user.password_confirmation
+  #   user.save
+  #   render json: user.as_json
+  # end
 
-  def destroy
-    user = User.find_by(id: params[:id])
-    user.destroy
-    render json: { message: "User successfully destroyed." }
-  end
+  # def destroy
+  #   user = User.find_by(id: params[:id])
+  #   user.destroy
+  #   render json: { message: "User successfully destroyed." }
+  # end
 end
