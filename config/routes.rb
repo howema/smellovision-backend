@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   get "/showgenres/:id" => "show_genres#show"
   patch "/showgenres/:id" => "show_genres#update"
   delete "/showgenres/:id" => "show_genres#destroy"
+
+  get "/publicactors" => "public_actors#index"
 end
